@@ -6,6 +6,7 @@ import { Bell, MessageCircle, Plus, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Loading from "./Loading";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
@@ -18,7 +19,7 @@ import {
 import { SidebarTrigger } from "./ui/sidebar";
 
 const Navbar = () => {
-  const { data: authUser } = useGetAuthUserQuery();
+  const { data: authUser, isLoading } = useGetAuthUserQuery();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -28,6 +29,9 @@ const Navbar = () => {
     await signOut();
     window.location.href = "/";
   };
+
+  if (isLoading) return <Loading />;
+
   return (
     <div
       className="fixed top-0 left-0 w-full z-50 shadow-xl"
@@ -67,7 +71,7 @@ const Navbar = () => {
               className="md:ml-4 bg-primary-50 text-primary-700 hover:bg-secondary-500 hover:text-primary-50"
               onClick={() =>
                 router.push(
-                  authUser.userRole?.tolowerCase() === "manager"
+                  authUser.userRole?.toLowerCase() === "manager"
                     ? "/managers/newproperty"
                     : "/search"
                 )
@@ -126,7 +130,7 @@ const Navbar = () => {
                     className="cursor-pointer hover:!bg-primary-700 hover:!text-primary-100 font-bold"
                     onClick={() => {
                       router.push(
-                        authUser.userRole?.tolowerCase() === "manager"
+                        authUser.userRole?.toLowerCase() === "manager"
                           ? "/managers/properties"
                           : "/tenants/favorites",
                         { scroll: false }
@@ -140,7 +144,7 @@ const Navbar = () => {
                     className="cursor-pointer hover:!bg-primary-700 hover:!text-primary-100"
                     onClick={() => {
                       router.push(
-                        `/${authUser.userRole?.tolowerCase()}s/settings`,
+                        `/${authUser.userRole?.toLowerCase()}s/settings`,
                         { scroll: false }
                       );
                     }}
