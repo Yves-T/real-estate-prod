@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../../prisma/src/generated/prisma/client";
 import { wktToGeoJSON } from "@terraformer/wkt";
 import { Request, Response } from "express";
 

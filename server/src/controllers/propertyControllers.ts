@@ -1,6 +1,10 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import { Location, Prisma, PrismaClient } from "@prisma/client";
+import {
+  Location,
+  Prisma,
+  PrismaClient,
+} from "../../prisma/src/generated/prisma/client";
 import { wktToGeoJSON } from "@terraformer/wkt";
 import axios from "axios";
 import { prototype } from "events";
