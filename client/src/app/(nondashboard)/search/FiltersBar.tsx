@@ -77,7 +77,7 @@ const FiltersBar = () => {
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
           searchInput
         )}.json?access_token=${process.env
-          .NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!}&fuzzyMatch=true`
+          .NEXT_PUBLIC_MAPBOX_ACCES_TOKEN!}&fuzzyMatch=true`
       );
       const data = await response.json();
       if (data.features && data.features.length > 0) {

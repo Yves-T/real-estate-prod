@@ -23,7 +23,7 @@ const HeroSection = () => {
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
           trimmedQuery
         )}.json?access_token=${
-          process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
+          process.env.NEXT_PUBLIC_MAPBOX_ACCES_TOKEN
         }&fuzzyMatch=true`
       );
       const data = await response.json();
