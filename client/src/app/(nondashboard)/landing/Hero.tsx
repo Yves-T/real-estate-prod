@@ -69,7 +69,7 @@ const HeroSection = () => {
             Start your journey to finding the perfect place to call home
           </h1>
           <p className="text-xl text-white mb-8">
-            Explore our wide range of rental proeprties tailored to fit your
+            Explore our wide range of rental properties tailored to fit your
             lifestyle and needs!
           </p>
           <div className="flex justify-center">
